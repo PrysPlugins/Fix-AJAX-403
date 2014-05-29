@@ -3,7 +3,7 @@
  * Plugin Name: 	Fix AJAX 403
  * Plugin URI:		https://github.com/PrysPlugins/Fix-AJAX-403
  * Description:		Prevent bad AJAX login requests from generating a 403 code
- * Version:		1.0
+ * Version:		1.1
  * Author:		Jeremy Pry
  * Author URI:		http://jeremypry.com/
  * License:		GPL2
