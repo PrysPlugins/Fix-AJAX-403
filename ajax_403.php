@@ -17,16 +17,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 add_action( 'plugins_loaded', 'jpry_adjust_wpe_hooks' );
+/**
+ * Replace the default WPE hook with one of our own.
+ *
+ * @since 1.0
+ */
 function jpry_adjust_wpe_hooks() {
 	remove_action( 'wp_login_failed', 'wpe_login_failed_403' );
 	add_action( 'wp_login_failed', 'jpry_login_failed_403' );
 }
 
+/**
+ * Custom login failed 403
+ *
+ * This is the same as the default version provided by WP Engine,
+ * except that we don't send the 403 when the request is an Ajax
+ * request
+ *
+ * @since 1.0
+ */
 function jpry_login_failed_403() {
+
 	// Don't 403 for Ajax requests
 	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 		return;
 	}
-	
+
 	status_header( 403 );
 }
